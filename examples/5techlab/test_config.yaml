@@ -1,11 +1,16 @@
 base_model: Qwen/Qwen2.5-1.5B
 model_type: AutoModelForCausalLM
 tokenizer_type: AutoTokenizer
+
 is_qwen_derived_model: true
 is_llama_derived_model: false
+
 #resume_from_checkpoint: false
 auto_resume_from_checkpoints: false
+
 seed: 42
+
+
 load_in_8bit: false
 load_in_4bit: false
 strict: false
@@ -22,8 +27,6 @@ special_tokens:
   pad_token: "<|endoftext|>"
 
   additional_special_tokens:
-    - "<|im_end|>"
-    - "<|im_start|>"
     - "<functions>"
     - "</functions>"
     - "<function_calls>"
@@ -65,14 +68,8 @@ dataset_prepared_path: /shared/data/data_10k/last_run_prepared
 hub_model_id:
 val_set_size: 0.04
 sequence_len: 8192
-##############
-sample_packing: true
-eval_sample_packing: true
 pad_to_sequence_len: true
-
-#######
-# pad_to_sequence_len: true
-# sample_packing: true
+sample_packing: false
 #batch_flattening:
 
 wandb_project: first-train-1.5B
@@ -100,7 +97,7 @@ load_best_model_at_end: true
 metric_for_best_model: "eval_loss"
 greater_is_better: false
 ####
-#eval_table_size: 1
+eval_table_size: 1
 train_on_inputs: false
 
 
