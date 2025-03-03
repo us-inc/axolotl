@@ -1,0 +1,127 @@
+base_model: Qwen/Qwen2.5-1.5B
+model_type: Qwen2ForCausalLM
+tokenizer_type: Qwen2Tokenizer
+tokenizer_path: mdl_shared/tokenizer/qwen2.5
+
+#is_qwen_derived_model: true
+is_llama_derived_model: false
+
+
+seed: 42
+
+
+load_in_8bit: false
+load_in_4bit: false
+strict: false
+
+shuffle_merged_datasets: false
+trust_remote_code:
+bf16: auto
+fp16:
+tf32: false
+
+special_tokens:
+  bos_token: "<|im_start|>"
+  eos_token: "<|im_end|>"
+  pad_token: "<|endoftext|>"
+
+  additional_special_tokens:
+    - "<functions>"
+    - "</functions>"
+    - "<function_calls>"
+    - "</function_calls>"
+    - "</function>"
+    - "<think>"
+    - "</think>"
+    - "<function name="
+
+model_init_kwargs:
+  init_device: "meta"
+  resize_token_embeddings_strategy: "mean"
+# bfloat16: true # require >=ampere
+# float16: true
+chat_template: chatml
+datasets:
+
+  #  - path: /shared/chat_general_1.2M_train.jsonl
+  - path: /shared/10k.jsonl
+    type: chat_template
+    chat_template: chatml
+    trust_remote_code: True
+
+
+#dataset_prepared_path: /shared/data/last_run_prepared
+dataset_prepared_path: /shared/data_10k/last_run_prepared
+#dataset_processes: 200
+hub_model_id:
+val_set_size: 0.04
+sequence_len: 8192
+pad_to_sequence_len: true
+sample_packing: false
+#batch_flattening:
+
+wandb_project: first-train-1.5B
+wandb_entity: ankit-singh-5techlab
+wandb_watch:
+wandb_name: first-train-1.5B-10k
+wandb_run_id: first-run-10k
+wandb_log_model:
+
+###############
+#output_dir: /shared/final_model
+output_dir: /shared/10k_test_final_model
+###########
+gradient_accumulation_steps: 4
+micro_batch_size: 2
+num_epochs: 1
+warmup_ratio: 0.1
+learning_rate: 1e-5
+
+eval_steps: 100
+save_steps: 500
+save_total_limit: 10
+#auto_find_batch_size:
+load_best_model_at_end: true
+metric_for_best_model: "eval_loss"
+greater_is_better: false
+####
+eval_table_size: 1
+train_on_inputs: false
+
+
+gradient_checkpointing: true
+# gradient_checkpointing_kwargs:
+#   use_reentrant: true
+early_stopping_patience: 3
+lr_scheduler: cosine
+
+weight_decay: 0.05
+max_grad_norm: 1.0
+dropout: 0.01
+xformers_attention:
+deepspeed: deepspeed_configs/zero1.json
+
+flash_attention: true
+#optimization:
+#  use_liger: true
+#  flash_attention_implementation: "variant-3-liger"
+
+optimizer: paged_adamw_8bit
+#
+#tokenizer_config:
+#  padding_side: left
+#
+
+plugins:
+  - axolotl.integrations.liger.LigerPlugin
+liger_rope: true
+liger_rms_norm: true
+liger_glu_activation: true
+liger_layer_norm: true
+liger_fused_linear_cross_entropy: true
+
+
+val_set_size: 0.01
+do_eval: true
+
+save_on_each_node: false
