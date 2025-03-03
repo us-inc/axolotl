@@ -46,9 +46,9 @@ model_init_kwargs:
 chat_template: qwen_25
 datasets:
   - path: /shared/10k.jsonl
-      type: chat_template
+      type: qwen_25
       field_messages: messages
-      trust_remote_code: True
+     
       # message_field_role: from
       # message_field_content: content
       # roles:
@@ -61,8 +61,7 @@ datasets:
 #    type: chat_template
 #    chat_template: chatml
 #    trust_remote_code: True
-
-
+trust_remote_code: true
 #dataset_prepared_path: /shared/data/last_run_prepared
 dataset_prepared_path: /shared/data/data_10k/last_run_prepared
 #dataset_processes: 200
