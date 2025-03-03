@@ -60,7 +60,7 @@ wandb_run_id: first-run-50k
 wandb_log_model:
 output_dir: /shared/data/models/qwen32b_1.6M
 ###########
-gradient_accumulation_steps: 4
+gradient_accumulation_steps: 8
 micro_batch_size: 2
 num_epochs: 3
 warmup_ratio: 0.1
@@ -84,8 +84,8 @@ gradient_checkpointing: true
 early_stopping_patience: 3
 lr_scheduler: cosine
 
-weight_decay: 0.05
-# max_grad_norm: 1.0
+weight_decay: 0.01
+max_grad_norm: 1.0
 # dropout: 0.01
 xformers_attention:
 deepspeed: deepspeed_configs/zero3_bf16_cpuoffload_params.json
