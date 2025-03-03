@@ -80,7 +80,7 @@ warmup_ratio: 0.1
 learning_rate: 1e-5
 
 eval_steps: 10
-save_steps: 50
+save_steps: 20
 save_total_limit: 10
 #auto_find_batch_size:
 load_best_model_at_end: true
