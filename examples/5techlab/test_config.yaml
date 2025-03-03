@@ -51,7 +51,7 @@ datasets:
 
 
 #dataset_prepared_path: /shared/data/last_run_prepared
-dataset_prepared_path: /shared/data_10k/last_run_prepared
+dataset_prepared_path: /shared/data/data_10k/last_run_prepared
 #dataset_processes: 200
 hub_model_id:
 val_set_size: 0.04
@@ -69,7 +69,7 @@ wandb_log_model:
 
 ###############
 #output_dir: /shared/final_model
-output_dir: /shared/10k_test_final_model
+output_dir: /shared/data/10k_test_final_model
 ###########
 gradient_accumulation_steps: 4
 micro_batch_size: 2
