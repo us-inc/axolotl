@@ -1,6 +1,6 @@
 base_model: Qwen/Qwen2.5-1.5B
-model_type: AutoModelForCausalLM
-tokenizer_type: AutoTokenizer
+# model_type: AutoModelForCausalLM
+# tokenizer_type: AutoTokenizer
 
 is_qwen_derived_model: true
 is_llama_derived_model: false
