@@ -1,9 +1,8 @@
 
 
 base_model: Qwen/Qwen2.5-1.5B
-model_type: Qwen2ForCausalLM
-tokenizer_type: Qwen2Tokenizer
-tokenizer_path: mdl_shared/tokenizer/qwen2.5
+model_type: AutoModelForCausalLM
+tokenizer_type: AutoTokenizer
 
 is_qwen_derived_model: true
 is_llama_derived_model: false
