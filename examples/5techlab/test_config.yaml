@@ -45,9 +45,11 @@ model_init_kwargs:
 # float16: true
 chat_template: chatml
 datasets:
-  - path: /shared/10k.jsonl 
-      type: chat_template
-      field_messages: messages
+  - path: json
+    data_files: /shared/10k.jsonl
+    type: chat_template
+    chat_template: chatml
+    field_messages: messages
       # message_field_role: role
       # message_field_content: content
       # roles:
