@@ -46,15 +46,15 @@ model_init_kwargs:
 chat_template: qwen_25
 datasets:
   - path: /shared/10k.jsonl
-      type: qwen_25
+      type: chat_template
       field_messages: messages
-     
-      # message_field_role: from
-      # message_field_content: content
-      # roles:
-      #   user: [ "human", "user" ]
-      #   assistant: [ "gpt", "assistant", "ai" ]
-      #   system: [ "system" ]
+      message_field_role: role
+      message_field_content: content
+      roles:
+        user: [ "user" ]
+        assistant: ["assistant"]
+        system: [ "system" ]
+        tool: ["tool"]
 
   #  - path: /shared/chat_general_1.2M_train.jsonl
 #  - path: /shared/10k.jsonl
