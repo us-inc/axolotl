@@ -18,21 +18,21 @@ special_tokens:
   bos_token: "<|im_start|>"
   eos_token: "<|im_end|>"
   pad_token: "<|endoftext|>"
-  additional_special_tokens:
-    - "<|im_end|>"
-    - "<|im_start|>"
-    # - "<functions>"
-    # - "</functions>"
-    # - "<function_calls>"
-    # - "</function_calls>"
-    # - "</function>"
-    - "<think>"
-    - "</think>"
-    # - "<function name="
+  # additional_special_tokens:
+  #   - "<|im_end|>"
+  #   - "<|im_start|>"
+  #   # - "<functions>"
+  #   # - "</functions>"
+  #   # - "<function_calls>"
+  #   # - "</function_calls>"
+  #   # - "</function>"
+  #   - "<think>"
+  #   - "</think>"
+  #   # - "<function name="
 
-model_init_kwargs:
-  init_device: "meta"
-  resize_token_embeddings_strategy: "mean"
+# model_init_kwargs:
+#   init_device: "meta"
+#   resize_token_embeddings_strategy: "mean"
 # bfloat16: true # require >=ampere
 # float16: true
 chat_template: qwen_25
