@@ -1,3 +1,5 @@
+
+
 base_model: Qwen/Qwen2.5-1.5B
 model_type: Qwen2ForCausalLM
 tokenizer_type: Qwen2Tokenizer
@@ -28,6 +30,8 @@ special_tokens:
   pad_token: "<|endoftext|>"
 
   additional_special_tokens:
+    - "<|im_end|>"
+    - "<|im_start|>"
     - "<functions>"
     - "</functions>"
     - "<function_calls>"
