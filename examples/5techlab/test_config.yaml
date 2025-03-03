@@ -2,15 +2,11 @@ base_model: Qwen/Qwen2.5-1.5B
 model_type: AutoModelForCausalLM
 tokenizer_type: AutoTokenizer
 
-is_qwen_derived_model: true
+#is_qwen_derived_model: true
 is_llama_derived_model: false
-
 #resume_from_checkpoint: false
 auto_resume_from_checkpoints: false
-
 seed: 42
-
-
 load_in_8bit: false
 load_in_4bit: false
 strict: false
@@ -20,13 +16,13 @@ trust_remote_code:
 bf16: auto
 fp16:
 tf32: false
-
 special_tokens:
   bos_token: "<|im_start|>"
   eos_token: "<|im_end|>"
   pad_token: "<|endoftext|>"
-
   additional_special_tokens:
+    - "<|im_end|>"
+    - "<|im_start|>"
     - "<functions>"
     - "</functions>"
     - "<function_calls>"
