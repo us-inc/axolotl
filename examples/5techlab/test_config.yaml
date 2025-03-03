@@ -42,21 +42,7 @@ datasets:
     type: chat_template
     chat_template: chatml
     field_messages: messages
-      # message_field_role: role
-      # message_field_content: content
-      # roles:
-      #   user: [ "user" ]
-      #   assistant: ["assistant"]
-      #   system: [ "system" ]
-      #   tool: ["tool"]
-
-  #  - path: /shared/chat_general_1.2M_train.jsonl
-#  - path: /shared/10k.jsonl
-#    type: chat_template
-#    chat_template: chatml
-#    trust_remote_code: True
 trust_remote_code: true
-#dataset_prepared_path: /shared/data/last_run_prepared
 dataset_prepared_path: /shared/data/data_10k/last_run_prepared
 #dataset_processes: 200
 hub_model_id:
@@ -72,9 +58,6 @@ wandb_watch:
 wandb_name: first-train-1.5B-10k
 wandb_run_id: first-run-10k
 wandb_log_model:
-
-###############
-#output_dir: /shared/final_model
 output_dir: /shared/data/10k_test_final_model
 ###########
 gradient_accumulation_steps: 4
@@ -102,8 +85,8 @@ early_stopping_patience: 3
 lr_scheduler: cosine
 
 weight_decay: 0.05
-max_grad_norm: 1.0
-dropout: 0.01
+# max_grad_norm: 1.0
+# dropout: 0.01
 xformers_attention:
 deepspeed: deepspeed_configs/zero1.json
 
@@ -112,7 +95,7 @@ optimization:
  use_liger: true
  flash_attention_implementation: "variant-3-liger"
 
-optimizer: paged_adamw_8bit
+optimizer: adamw_8bit
 #
 #tokenizer_config:
 #  padding_side: left
