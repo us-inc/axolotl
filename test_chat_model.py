@@ -1,4 +1,4 @@
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, TextStreamer
 import torch
 
 
@@ -22,18 +22,11 @@ class ChatModel:
 
         model_inputs = self.tokenizer([text], return_tensors="pt", padding=True).to(self.model.device)
 
-        generated_ids = self.model.generate(
-            **model_inputs, max_new_tokens=max_tokens, pad_token_id=self.tokenizer.eos_token_id
+        streamer = TextStreamer(self.tokenizer)
+
+        self.model.generate(
+            **model_inputs, max_new_tokens=max_tokens, pad_token_id=self.tokenizer.eos_token_id, streamer=streamer
         )
-
-        response = ""
-        for token_id in generated_ids[0][len(model_inputs.input_ids[0]):]:
-            token = self.tokenizer.decode([token_id], skip_special_tokens=True)
-            print(token, end="", flush=True)  # Streaming output
-            response += token
-        print()
-
-        return response
 
 
 if __name__ == '__main__':
@@ -42,5 +35,4 @@ if __name__ == '__main__':
         user = input("Enter: ")
         if user.lower() == "exit":
             break
-        response = model.generate_response(user)
-        print(f"\nAI: {response}")
+        model.generate_response(user)
