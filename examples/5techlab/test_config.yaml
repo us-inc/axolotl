@@ -1,6 +1,6 @@
 base_model: Qwen/Qwen2.5-1.5B
-model_type: AutoModelForCausalLM
-tokenizer_type: AutoTokenizer
+# model_type: AutoModelForCausalLM
+# tokenizer_type: AutoTokenizer
 is_qwen_derived_model: true
 is_llama_derived_model: false
 resume_from_checkpoint: 
@@ -14,10 +14,10 @@ trust_remote_code:
 bf16: auto
 fp16:
 tf32: false
-special_tokens:
-  bos_token: "<|im_start|>"
-  eos_token: "<|im_end|>"
-  pad_token: "<|endoftext|>"
+# special_tokens:
+#   bos_token: "<|im_start|>"
+#   eos_token: "<|im_end|>"
+#   pad_token: "<|endoftext|>"
   # additional_special_tokens:
   #   - "<|im_end|>"
   #   - "<|im_start|>"
@@ -43,7 +43,7 @@ datasets:
     chat_template: chatml
     field_messages: messages
 trust_remote_code: true
-dataset_prepared_path: /shared/data/data_50k/last_run_prepared
+dataset_prepared_path: /shared/data/data_50k/last_run_prepared_v1
 #dataset_processes: 200
 hub_model_id:
 val_set_size: 0.04
@@ -58,7 +58,7 @@ wandb_watch:
 wandb_name: first-train-1.5B-50k
 wandb_run_id: first-run-50k
 wandb_log_model:
-output_dir: /shared/data/50k_test_final_model
+output_dir: /shared/data/50k_test_final_model_v1
 ###########
 gradient_accumulation_steps: 4
 micro_batch_size: 2
