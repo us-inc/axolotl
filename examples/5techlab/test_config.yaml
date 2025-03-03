@@ -3,7 +3,7 @@ model_type: Qwen2ForCausalLM
 tokenizer_type: Qwen2Tokenizer
 tokenizer_path: mdl_shared/tokenizer/qwen2.5
 
-is_qwen_derived_model: true
+#is_qwen_derived_model: true
 is_llama_derived_model: false
 
 #resume_from_checkpoint: false
@@ -79,8 +79,8 @@ num_epochs: 1
 warmup_ratio: 0.1
 learning_rate: 1e-5
 
-eval_steps: 100
-save_steps: 500
+eval_steps: 10
+save_steps: 50
 save_total_limit: 10
 #auto_find_batch_size:
 load_best_model_at_end: true
