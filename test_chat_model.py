@@ -34,7 +34,10 @@ class ChatModel:
         return response
 
 if __name__ == '__main__':
-# Example usage:
     model = ChatModel("/shared/data/10k_test_final_model")
-    response = model.generate_response("Give me the value of 2+2")
-    print(response)
+    user = input("Enter: ")
+    while True:
+        if user == "exit":
+            break
+        response = model.generate_response("Give me the value of 2+2")
+        print(f"AI: {response}")
