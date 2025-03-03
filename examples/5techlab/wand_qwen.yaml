@@ -57,7 +57,7 @@ group_by_length: false
 gradient_checkpointing: true
 gradient_checkpointing_kwargs:
   use_reentrant: false
-early_stopping_patience:3
+early_stopping_patience: 3
 resume_from_checkpoint:
 local_rank:
 logging_steps: 1
