@@ -1,4 +1,6 @@
 base_model: Qwen/Qwen2.5-1.5B
+model_type: AutoModelForCausalLM
+tokenizer_type: AutoTokenizer
 trust_remote_code: false
 is_qwen_derived_model: true
 is_llama_derived_model: false
@@ -6,7 +8,7 @@ resume_from_checkpoint:
 load_in_8bit: false
 load_in_4bit: false
 strict: false
-shuffle_merged_datasets: false
+shuffle_merged_datasets: true
 bf16: auto
 fp16:
 tf32: false
@@ -23,9 +25,9 @@ val_set_size: 0.04
 sequence_len: 8192
 output_dir: /shared/data/10k_test_final_model
 
-sequence_len: 2048
+sequence_len: 4096
 sample_packing: false
-eval_sample_packing: true
+eval_sample_packing: false
 pad_to_sequence_len: true
 
 wandb_project: first-train-1.5B
@@ -37,7 +39,7 @@ wandb_log_model:
 
 gradient_accumulation_steps: 4
 micro_batch_size: 2
-num_epochs: 2
+num_epochs: 4
 optimizer: adamw_8bit
 lr_scheduler: cosine
 learning_rate: 1e-5
@@ -87,3 +89,23 @@ debug:
 weight_decay: 0.01
 fsdp:
 fsdp_config:
+
+special_tokens:
+  bos_token: "<|im_start|>"
+  eos_token: "<|im_end|>"
+  pad_token: "<|endoftext|>"
+  additional_special_tokens:
+    - "<|im_end|>"
+    - "<|im_start|>"
+    # - "<functions>"
+    # - "</functions>"
+    # - "<function_calls>"
+    # - "</function_calls>"
+    # - "</function>"
+    - "<think>"
+    - "</think>"
+    # - "<function name="
+
+model_init_kwargs:
+  init_device: "meta"
+  resize_token_embeddings_strategy: "mean"
