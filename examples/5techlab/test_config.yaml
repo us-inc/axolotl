@@ -1,5 +1,3 @@
-
-
 base_model: Qwen/Qwen2.5-1.5B
 model_type: AutoModelForCausalLM
 tokenizer_type: AutoTokenizer
@@ -45,17 +43,18 @@ model_init_kwargs:
   resize_token_embeddings_strategy: "mean"
 # bfloat16: true # require >=ampere
 # float16: true
-chat_template: chatml
+chat_template: qwen_25
 datasets:
   - path: /shared/10k.jsonl
       type: chat_template
       field_messages: messages
-      message_field_role: from
-      message_field_content: content
-      roles:
-        user: [ "human", "user" ]
-        assistant: [ "gpt", "assistant", "ai" ]
-        system: [ "system" ]
+      trust_remote_code: True
+      # message_field_role: from
+      # message_field_content: content
+      # roles:
+      #   user: [ "human", "user" ]
+      #   assistant: [ "gpt", "assistant", "ai" ]
+      #   system: [ "system" ]
 
   #  - path: /shared/chat_general_1.2M_train.jsonl
 #  - path: /shared/10k.jsonl
@@ -116,9 +115,9 @@ xformers_attention:
 deepspeed: deepspeed_configs/zero1.json
 
 flash_attention: true
-#optimization:
-#  use_liger: true
-#  flash_attention_implementation: "variant-3-liger"
+optimization:
+ use_liger: true
+ flash_attention_implementation: "variant-3-liger"
 
 optimizer: paged_adamw_8bit
 #
