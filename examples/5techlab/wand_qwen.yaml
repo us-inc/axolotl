@@ -13,7 +13,7 @@ tf32: false
 chat_template: qwen_25
 datasets:
   - path: json
-    data_files: /shared/10k.jsonl
+    data_files: /shared/50k.jsonl
     type: chat_template
     chat_template: chatml
     field_messages: messages
