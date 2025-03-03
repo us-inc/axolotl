@@ -43,9 +43,9 @@ model_init_kwargs:
   resize_token_embeddings_strategy: "mean"
 # bfloat16: true # require >=ampere
 # float16: true
+chat_template: chatml
 datasets:
-  - path: /shared/10k.jsonl
-      chat_template: chatml
+  - path: /shared/10k.jsonl 
       type: chat_template
       field_messages: messages
       # message_field_role: role
