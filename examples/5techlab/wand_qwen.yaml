@@ -1,0 +1,89 @@
+base_model: Qwen/Qwen2.5-1.5B
+trust_remote_code: false
+is_qwen_derived_model: true
+is_llama_derived_model: false
+resume_from_checkpoint: 
+load_in_8bit: false
+load_in_4bit: false
+strict: false
+shuffle_merged_datasets: false
+bf16: auto
+fp16:
+tf32: false
+chat_template: qwen_25
+datasets:
+  - path: json
+    data_files: /shared/10k.jsonl
+    type: chat_template
+    chat_template: chatml
+    field_messages: messages
+trust_remote_code: true
+dataset_prepared_path: /shared/data/data_10k/last_run_prepared
+val_set_size: 0.04
+sequence_len: 8192
+output_dir: /shared/data/10k_test_final_model
+
+sequence_len: 2048
+sample_packing: false
+eval_sample_packing: true
+pad_to_sequence_len: true
+
+wandb_project: first-train-1.5B
+wandb_entity: ankit-singh-5techlab
+wandb_watch:
+wandb_name: first-train-1.5B-10k
+wandb_run_id: first-run-10k
+wandb_log_model:
+
+gradient_accumulation_steps: 4
+micro_batch_size: 2
+num_epochs: 2
+optimizer: adamw_8bit
+lr_scheduler: cosine
+learning_rate: 1e-5
+#####
+eval_steps: 20
+save_steps: 20
+save_total_limit: 10
+########
+load_best_model_at_end: true
+metric_for_best_model: "eval_loss"
+greater_is_better: fal
+##########
+train_on_inputs: false
+group_by_length: false
+
+
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+early_stopping_patience:3
+resume_from_checkpoint:
+local_rank:
+logging_steps: 1
+xformers_attention:
+flash_attention: true
+optimization:
+ use_liger: true
+ flash_attention_implementation: "variant-3-liger"
+
+
+plugins:
+  - axolotl.integrations.liger.LigerPlugin
+liger_rope: true
+liger_rms_norm: true
+liger_glu_activation: true
+liger_layer_norm: true
+liger_fused_linear_cross_entropy: true
+
+
+
+val_set_size: 0.01
+do_eval: true
+
+save_on_each_node: false
+warmup_ratio: 0.1
+debug:
+weight_decay: 0.01
+fsdp:
+fsdp_config:
