@@ -210,11 +210,14 @@ def load_tokenizer(cfg):
         tokenizer.padding_side = "left"
 
     # Qwen base only has single token, so we need to set the special tokens
-    if cfg.is_qwen_derived_model:
-        token_ids = ["bos_token_id", "eos_token_id", "pad_token_id", "unk_token_id"]
-        for attr_name in token_ids:
-            if getattr(tokenizer, attr_name) is None:
-                setattr(tokenizer, attr_name, tokenizer.eod_id)
+    if cfg.is_qwen_derived_model and cfg.flash_attention and not cfg.sample_packing:
+        tokenizer.padding_side = "left"
+        # token_ids = ["bos_token_id", "eos_token_id", "pad_token_id", "unk_token_id"]
+        # for attr_name in token_ids:
+        #     if getattr(tokenizer, attr_name) is None:
+        #         setattr(tokenizer, attr_name, tokenizer.eod_id)
+
+
 
         # token_names = ["bos_token", "eos_token", "pad_token", "unk_token"]
         # for attr_name in token_names:
