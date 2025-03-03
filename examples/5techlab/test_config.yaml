@@ -21,14 +21,14 @@ special_tokens:
   additional_special_tokens:
     - "<|im_end|>"
     - "<|im_start|>"
-    - "<functions>"
-    - "</functions>"
-    - "<function_calls>"
-    - "</function_calls>"
-    - "</function>"
+    # - "<functions>"
+    # - "</functions>"
+    # - "<function_calls>"
+    # - "</function_calls>"
+    # - "</function>"
     - "<think>"
     - "</think>"
-    - "<function name="
+    # - "<function name="
 
 model_init_kwargs:
   init_device: "meta"
