@@ -8,6 +8,7 @@ class ChatModel:
             model_path, torch_dtype="auto", device_map="auto"
         )
         self.tokenizer = AutoTokenizer.from_pretrained(model_path)
+        self.tokenizer.pad_token = self.tokenizer.eos_token  # Fix for pad_token_id warning
 
     def generate_response(self, prompt, max_tokens=1024):
         messages = [
@@ -19,25 +20,27 @@ class ChatModel:
             messages, tokenize=False, add_generation_prompt=True
         )
 
-        model_inputs = self.tokenizer([text], return_tensors="pt").to(self.model.device)
+        model_inputs = self.tokenizer([text], return_tensors="pt", padding=True).to(self.model.device)
 
         generated_ids = self.model.generate(
-            **model_inputs, max_new_tokens=max_tokens
+            **model_inputs, max_new_tokens=max_tokens, pad_token_id=self.tokenizer.eos_token_id
         )
 
-        generated_ids = [
-            output_ids[len(input_ids):]
-            for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
-        ]
+        response = ""
+        for token_id in generated_ids[0][len(model_inputs.input_ids[0]):]:
+            token = self.tokenizer.decode([token_id], skip_special_tokens=True)
+            print(token, end="", flush=True)  # Streaming output
+            response += token
+        print()
 
-        response = self.tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
         return response
+
 
 if __name__ == '__main__':
     model = ChatModel("/shared/data/10k_test_final_model")
-    user = input("Enter: ")
     while True:
-        if user == "exit":
+        user = input("Enter: ")
+        if user.lower() == "exit":
             break
-        response = model.generate_response("Give me the value of 2+2")
-        print(f"AI: {response}")
+        response = model.generate_response(user)
+        print(f"\nAI: {response}")
