@@ -87,7 +87,7 @@ weight_decay: 0.01
 max_grad_norm: 1.0
 # dropout: 0.01
 xformers_attention:
-deepspeed: deepspeed_configs/zero2.json
+deepspeed: /shared/data/axolotl/deepspeed_configs/zero2.json
 
 flash_attention: true
 optimization:
