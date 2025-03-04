@@ -51,12 +51,12 @@ pad_to_sequence_len: true
 sample_packing: false
 #batch_flattening:
 
-wandb_project: train-r1-1.6M
-wandb_entity: ankit-singh-5techlab
-wandb_watch:
-wandb_name: train-v1.32B-1.6M
-wandb_run_id: run-1.6M
-wandb_log_model:
+# wandb_project: train-r1-1.6M
+# wandb_entity: ankit-singh-5techlab
+# wandb_watch:
+# wandb_name: train-v1.32B-1.6M
+# wandb_run_id: run-1.6M
+# wandb_log_model:
 output_dir: /shared/data/models/qwen32b_1.6M
 ###########
 gradient_accumulation_steps: 8
