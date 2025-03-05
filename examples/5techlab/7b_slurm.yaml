@@ -21,8 +21,6 @@ special_tokens:
   eos_token: "<|im_end|>"
   pad_token: "<|endoftext|>"
   additional_special_tokens:
-    - "<|im_end|>"
-    - "<|im_start|>"
     - "<functions>"
     - "</functions>"
     - "<function_calls>"
