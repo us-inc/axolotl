@@ -28,7 +28,7 @@ model_init_kwargs:
 chat_template: qwen_25
 datasets:
   - path: json
-    data_files: /shared/10.jsonl
+    data_files: /shared/10k.jsonl
     type: chat_template
     chat_template: chatml
     field_messages: messages
