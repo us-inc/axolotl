@@ -15,26 +15,29 @@ bf16: auto
 fp16:
 tf32: false
 
-chat_template: phi_35
+chat_template: qwen_25
+# special_tokens:
+#   additional_special_tokens:
+#     - "<|system|>"
+#     - "<|user|>"
+#     - "<|assistant|>"
+#     - "<|tool|>"
+#     - "<|end|>"
 special_tokens:
-  # bos_token: "<|im_start|>"
-  # eos_token: "<|im_end|>"
-  # pad_token: "<|endoftext|>"
+  bos_token: "<|im_start|>"
+  eos_token: "<|im_end|>"
+  pad_token: "<|endoftext|>"
   additional_special_tokens:
-    - "<|system|>"
-    - "<|user|>"
-    - "<|assistant|>"
-    - "<|tool|>"
-    - "<|end|>"
-    # - "<functions>"
-    # - "</functions>"
-    # - "<function_calls>"
-    # - "</function_calls>"
-    # - "</function>"
-    # - "<think>"
-    # - "</think>"
-    # - "<function name="
-
+    - "<|im_end|>"
+    - "<|im_start|>"
+    - "<functions>"
+    - "</functions>"
+    - "<function_calls>"
+    - "</function_calls>"
+    - "</function>"
+    - "<think>"
+    - "</think>"
+    - "<function name="
 
 model_init_kwargs:
   init_device: "meta"
@@ -46,7 +49,6 @@ datasets:
   - path: json
     data_files: /shared/10k.jsonl
     type: chat_template
-    chat_template: chatml
     field_messages: messages
 trust_remote_code: true
 dataset_prepared_path: /shared/data/10_test
