@@ -14,36 +14,26 @@ trust_remote_code:
 bf16: auto
 fp16:
 tf32: false
-# special_tokens:
-#   bos_token: "<|im_start|>"
-#   eos_token: "<|im_end|>"
-#   pad_token: "<|endoftext|>"
-  # additional_special_tokens:
-  #   - "<|im_end|>"
-  #   - "<|im_start|>"
-  #   # - "<functions>"
-  #   # - "</functions>"
-  #   # - "<function_calls>"
-  #   # - "</function_calls>"
-  #   # - "</function>"
-  #   - "<think>"
-  #   - "</think>"
-  #   # - "<function name="
-
-# model_init_kwargs:
-#   init_device: "meta"
-#   resize_token_embeddings_strategy: "mean"
+chat_template: qwen_25
+special_tokens:
+  bos_token: "<|im_start|>"
+  eos_token: "<|im_end|>"
+  pad_token: "<|endoftext|>"
+additional_special_tokens: ["<|im_end|>","<|im_start|>","<functions>","</functions>","<function_calls>","</function_calls>","</function>","<think>","</think>","<function name="]
+model_init_kwargs:
+  init_device: "meta"
+  resize_token_embeddings_strategy: "mean"
 # bfloat16: true # require >=ampere
 # float16: true
 chat_template: qwen_25
 datasets:
   - path: json
-    data_files: /shared/chat_general_1.6M_train.jsonl
+    data_files: /shared/10.jsonl
     type: chat_template
     chat_template: chatml
     field_messages: messages
 trust_remote_code: true
-dataset_prepared_path: /shared/data/prep_data/qwen7b_1.6M
+dataset_prepared_path: /shared/data/10k_tokens
 #dataset_processes: 200
 hub_model_id:
 sequence_len: 8192
@@ -57,7 +47,7 @@ sample_packing: false
 # wandb_name: train-v1.7B-1.6M
 # wandb_run_id: run-1.6M
 # wandb_log_model:
-output_dir: /shared/data/models/qwen7b_1.6M_slurm
+output_dir: /shared/data/10_tokens_model
 ###########
 gradient_accumulation_steps: 4
 micro_batch_size: 3
