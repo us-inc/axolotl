@@ -15,20 +15,25 @@ bf16: auto
 fp16:
 tf32: false
 
-chat_template: qwen_25
+chat_template: phi_35
 special_tokens:
-  bos_token: "<|im_start|>"
-  eos_token: "<|im_end|>"
-  pad_token: "<|endoftext|>"
+  # bos_token: "<|im_start|>"
+  # eos_token: "<|im_end|>"
+  # pad_token: "<|endoftext|>"
   additional_special_tokens:
-    - "<functions>"
-    - "</functions>"
-    - "<function_calls>"
-    - "</function_calls>"
-    - "</function>"
-    - "<think>"
-    - "</think>"
-    - "<function name="
+    - "<|system|>"
+    - "<|user|>"
+    - "<|assistant|>"
+    - "<|tool|>"
+    - "<|end|>"
+    # - "<functions>"
+    # - "</functions>"
+    # - "<function_calls>"
+    # - "</function_calls>"
+    # - "</function>"
+    # - "<think>"
+    # - "</think>"
+    # - "<function name="
 
 
 model_init_kwargs:
