@@ -45,7 +45,7 @@ model_init_kwargs:
 # chat_template: qwen_25
 datasets:
   - path: json
-    data_files: /shared/10k.jsonl
+    data_files: /shared/chat_general_1.6M_train.jsonl
     type: chat_template
     field_messages: messages
 trust_remote_code: true
