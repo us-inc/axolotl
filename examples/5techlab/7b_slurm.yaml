@@ -15,7 +15,7 @@ bf16: auto
 fp16:
 tf32: false
 
-chat_template: chatml
+chat_template: qwen_25
 # special_tokens:
 #   additional_special_tokens:
 #     - "<|system|>"
