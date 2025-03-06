@@ -15,7 +15,7 @@ bf16: auto
 fp16:
 tf32: false
 
-chat_template: qwen_25
+chat_template: chatml
 # special_tokens:
 #   additional_special_tokens:
 #     - "<|system|>"
@@ -28,8 +28,6 @@ special_tokens:
   eos_token: "<|im_end|>"
   pad_token: "<|endoftext|>"
   additional_special_tokens:
-    - "<|im_end|>"
-    - "<|im_start|>"
     - "<functions>"
     - "</functions>"
     - "<function_calls>"
