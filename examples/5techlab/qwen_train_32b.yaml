@@ -55,7 +55,7 @@ wandb_project: train-r1-1.6M
 wandb_entity: ankit-singh-5techlab
 wandb_watch:
 wandb_name: train-v1.32B-1.6M
-wandb_run_id: run-1.6M
+wandb_run_id: run-1.6M_tmp
 wandb_log_model:
 output_dir: /shared/data/template/qwen32b_1.6M_model
 ###########
