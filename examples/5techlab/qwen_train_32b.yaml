@@ -60,7 +60,7 @@ wandb_log_model:
 output_dir: /shared/data/template/qwen32b_1.6M_model
 ###########
 gradient_accumulation_steps: 8
-micro_batch_size: 1
+micro_batch_size: 2
 num_epochs: 3
 warmup_ratio: 0.1
 learning_rate: 1e-5
