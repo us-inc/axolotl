@@ -21,6 +21,7 @@ special_tokens:
   additional_special_tokens:
     - "<|im_end|>"
     - "<|im_start|>"
+    - "<|im_sep|>"
     - "<functions>"
     - "</functions>"
     - "<function_calls>"
@@ -38,12 +39,12 @@ model_init_kwargs:
 chat_template: qwen_25
 datasets:
   - path: json
-    data_files: /shared/chat_general_1.6M_train.jsonl
+    data_files: /shared/50k.jsonl
     type: chat_template
     #chat_template: chatml
     field_messages: messages
 trust_remote_code: true
-dataset_prepared_path: /shared/data/template/qwen32b_1.6M_dataset
+dataset_prepared_path: /shared/data/experiment/last_run_prepared
 # dataset_processes: 200
 hub_model_id:
 sequence_len: 8192
@@ -57,7 +58,7 @@ wandb_watch:
 wandb_name: train-v1.32B-1.6M
 wandb_run_id: run-1.6M_tmp
 wandb_log_model:
-output_dir: /shared/data/template/qwen32b_1.6M_model
+output_dir: /shared/data/experiment/sample_model
 ###########
 gradient_accumulation_steps: 8
 micro_batch_size: 2
