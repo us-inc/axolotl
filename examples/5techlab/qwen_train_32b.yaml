@@ -40,7 +40,7 @@ model_init_kwargs:
 chat_template: chatml
 datasets:
   - path: json
-    data_files: /shared/50k.jsonl
+    data_files: /shared/10k.jsonl
     type: chat_template
     #chat_template: chatml
     field_messages: messages
