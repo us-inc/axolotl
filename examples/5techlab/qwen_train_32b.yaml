@@ -15,21 +15,21 @@ bf16: auto
 fp16:
 tf32: false
 special_tokens:
-  bos_token: "<|im_start|>"
-  eos_token: "<|im_end|>"
-  pad_token: "<|endoftext|>"
-  additional_special_tokens:
-    - "<|im_end|>"
-    - "<|im_start|>"
-    - "<|im_sep|>"
-    - "<functions>"
-    - "</functions>"
-    - "<function_calls>"
-    - "</function_calls>"
-    - "</function>"
-    - "<think>"
-    - "</think>"
-    - "<function name="
+  # bos_token: "<|im_start|>"
+  # eos_token: "<|im_end|>"
+  # pad_token: "<|endoftext|>"
+  # additional_special_tokens:
+  #   - "<|im_end|>"
+  #   - "<|im_start|>"
+  #   - "<|im_sep|>"
+  #   - "<functions>"
+  #   - "</functions>"
+  #   - "<function_calls>"
+  #   - "</function_calls>"
+  #   - "</function>"
+  #   - "<think>"
+  #   - "</think>"
+  #   - "<function name="
 
 model_init_kwargs:
   init_device: "meta"
