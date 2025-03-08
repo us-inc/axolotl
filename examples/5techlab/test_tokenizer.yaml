@@ -89,7 +89,7 @@ weight_decay: 0.01
 max_grad_norm: 1.0
 # dropout: 0.01
 xformers_attention:
-deepspeed: deepspeed_configs/zero3_bf16_cpuoffload_params.json
+deepspeed: deepspeed_configs/zero1.json
 
 flash_attention: true
 optimization:
