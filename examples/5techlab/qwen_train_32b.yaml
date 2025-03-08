@@ -38,7 +38,7 @@ model_init_kwargs:
   resize_token_embeddings_strategy: "mean"
 # bfloat16: true # require >=ampere
 # float16: true
-chat_template: chatml
+chat_template: qwen25
 datasets:
   - path: json
     data_files: /shared/50k.jsonl
@@ -60,7 +60,7 @@ wandb_watch:
 wandb_name: train-v1.32B-1.6M
 wandb_run_id: run-1.6M_tmp
 wandb_log_model:
-output_dir: /shared/data/experiment/sample_model
+output_dir: /shared/data/experiment/sample_model_qwen
 ###########
 gradient_accumulation_steps: 8
 micro_batch_size: 2
