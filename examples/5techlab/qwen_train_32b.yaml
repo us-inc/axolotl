@@ -1,4 +1,4 @@
-base_model: /shared/base_models/qwen2.5-32b/
+base_model: /shared/data/experiment/sample_model_qwen
 # model_type: AutoModelForCausalLM
 # tokenizer_type: AutoTokenizer
 is_qwen_derived_model: true
@@ -63,7 +63,7 @@ output_dir: /shared/data/experiment/sample_model_qwen
 ###########
 gradient_accumulation_steps: 8
 micro_batch_size: 1
-num_epochs: 4
+num_epochs: 3
 warmup_ratio: 0.1
 learning_rate: 1e-5
 
