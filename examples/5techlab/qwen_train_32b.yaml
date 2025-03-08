@@ -19,17 +19,14 @@ special_tokens:
   # eos_token: "<|im_end|>"
   # pad_token: "<|endoftext|>"
   additional_special_tokens:
-  #   - "<|im_end|>"
-  #   - "<|im_start|>"
-  #   - "<|im_sep|>"
-  #   - "<functions>"
-  #   - "</functions>"
-  #   - "<function_calls>"
-  #   - "</function_calls>"
-  #   - "</function>"
+    - "<functions>"
+    - "</functions>"
+    - "<function_calls>"
+    - "</function_calls>"
+    - "</function>"
     - "<think>"
     - "</think>"
-  #   - "<function name="
+    - "<function name="
 
 model_init_kwargs:
   init_device: "meta"
