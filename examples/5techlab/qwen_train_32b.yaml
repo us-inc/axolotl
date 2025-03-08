@@ -57,7 +57,7 @@ wandb_project: train-r1-1_5M
 wandb_entity: ankit-singh-5techlab
 wandb_watch:
 wandb_name: train-v1_32B-1_5M
-wandb_run_id: run-1_M_tmp
+wandb_run_id: run-1_5M_tmp
 wandb_log_model:
 output_dir: /shared/data/1_5M/32b
 ###########
