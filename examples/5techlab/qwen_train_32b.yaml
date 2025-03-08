@@ -27,6 +27,10 @@ special_tokens:
     - "<think>"
     - "</think>"
     - "<function name="
+    - "<function_outputs>"
+    - "<output name=\""
+    - "<output>"
+    - "</function_outputs>"
 
 model_init_kwargs:
   init_device: "meta"
