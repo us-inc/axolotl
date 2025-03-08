@@ -36,7 +36,7 @@ model_init_kwargs:
   resize_token_embeddings_strategy: "mean"
 # bfloat16: true # require >=ampere
 # float16: true
-chat_template: qwen_25
+chat_template: chatml
 datasets:
   - path: json
     data_files: /shared/50k.jsonl
