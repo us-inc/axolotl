@@ -3,7 +3,7 @@ base_model: /shared/base_models/qwen2.5-32b/
 # tokenizer_type: AutoTokenizer
 is_qwen_derived_model: true
 is_llama_derived_model: false
-resume_from_checkpoint: 
+resume_from_checkpoint:
 #auto_resume_from_checkpoints: false
 seed: 42
 load_in_8bit: false
@@ -26,7 +26,7 @@ special_tokens:
     - "</function>"
     - "<think>"
     - "</think>"
-    - "<function name="
+    - "<function name=\""
     - "<function_outputs>"
     - "<output name=\""
     - "<output>"
