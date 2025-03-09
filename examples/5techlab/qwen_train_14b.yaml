@@ -1,4 +1,4 @@
-base_model: /shared/base_models/Qwen2.5-7B
+base_model: /shared/base_models/Qwen2.5-14B
 # model_type: AutoModelForCausalLM
 # tokenizer_type: AutoTokenizer
 is_qwen_derived_model: true
@@ -45,7 +45,7 @@ datasets:
     type: chat_template
     field_messages: messages
 trust_remote_code: true
-dataset_prepared_path: /shared/data/custom_v1/dataset/7b # replace this with the path to your prepared dataset
+dataset_prepared_path: /shared/data/custom_v1/dataset/14b # replace this with the path to your prepared dataset
 #dataset_processes: 200
 hub_model_id:
 sequence_len: 8192
@@ -53,17 +53,17 @@ pad_to_sequence_len: true
 sample_packing: false
 #batch_flattening:
 
-wandb_project: train-r1-default-7b # replace this with your wandb project name
+wandb_project: project-r1-train-v1-14b # replace this with your wandb project name
 wandb_entity: ankit-singh-5techlab # replace this with your wandb entity name
 wandb_watch:
-wandb_name: train-v1-default-7b # replace this with your wandb run name
-wandb_run_id: run-default-7b # replace this with your wandb run id
+wandb_name: train-r1-train-v1-14b # replace this with your wandb run name
+wandb_run_id: run-r1-train-v1-14b # replace this with your wandb run id
 wandb_log_model:
-output_dir: /shared/data/custim_v1/model/7b # replace this with the path to your output directory
+output_dir: /shared/data/train/model/14b/v1 # replace this with the path to your output directory
 ###########
-gradient_accumulation_steps: 8 # change this to your desired gradient accumulation steps
+gradient_accumulation_steps: 4 # change this to your desired gradient accumulation steps
 micro_batch_size: 2 # change this to your desired micro batch size
-num_epochs: 4 # change this to your desired number of epochs
+num_epochs: 3 # change this to your desired number of epochs
 warmup_ratio: 0.1 # change this to your desired warmup ratio
 learning_rate: 1e-5 # change this to your desired learning rate
 
@@ -89,7 +89,7 @@ weight_decay: 0.05 # change this to your desired weight decay
 max_grad_norm: 1.0 # change this to your desired max grad norm
 # dropout: 0.01
 xformers_attention:
-deepspeed: /shared/data/axolotl/deepspeed_configs/zero1.json # replace this with the path to your deepspeed config file
+deepspeed: /shared/data/axolotl/deepspeed_configs/zero3_bf16_cpuoffload_params.json # replace this with the path to your deepspeed config file
 
 flash_attention: true
 optimization:
