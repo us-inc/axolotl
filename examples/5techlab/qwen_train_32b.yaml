@@ -19,6 +19,7 @@ special_tokens:
   # eos_token: "<|im_end|>"
   # pad_token: "<|endoftext|>"
   additional_special_tokens:
+    - "<|im_header_end|>"
     - "<functions>"
     - "</functions>"
     - "<function_calls>"
@@ -31,7 +32,6 @@ special_tokens:
     - "<output name=\""
     - "<output>"
     - "</function_outputs>"
-    - "<|im_header_end|>"
 
 model_init_kwargs:
   init_device: "meta"
