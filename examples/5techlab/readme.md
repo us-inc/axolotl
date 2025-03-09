@@ -18,6 +18,8 @@ export NCCL_DEBUG=INFO
 export NCCL_IB_DISABLE=0
 export NCCL_BUFFSIZE=2097152
 
+export WANDB_API_KEY="0b01a182246af40350de8a12ba31d0812b7e762a"
+
 ### NCCL SLURM Command
 
 ibstat | grep -B16 InfiniBand | grep ^CA | sed "s/^CA *//1" | tr -d "'" | paste -sd,
@@ -27,6 +29,10 @@ ibstat | grep -B16 InfiniBand | grep ^CA | sed "s/^CA *//1" | tr -d "'" | paste 
 screen -L -Logfile output.log -S train
 
 screen -d -r screen_name
+
+### Wandb login
+
+wandb login 0b01a182246af40350de8a12ba31d0812b7e762a
 
 
 ### Start Training Command (From shared folder)
