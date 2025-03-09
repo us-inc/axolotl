@@ -61,8 +61,8 @@ wandb_run_id: run-r1-train-v1-14b # replace this with your wandb run id
 wandb_log_model:
 output_dir: /shared/data/train/model/14b/v1 # replace this with the path to your output directory
 ###########
-gradient_accumulation_steps: 4 # change this to your desired gradient accumulation steps
-micro_batch_size: 2 # change this to your desired micro batch size
+gradient_accumulation_steps: 8 # change this to your desired gradient accumulation steps
+micro_batch_size: 1 # change this to your desired micro batch size
 num_epochs: 3 # change this to your desired number of epochs
 warmup_ratio: 0.1 # change this to your desired warmup ratio
 learning_rate: 1e-5 # change this to your desired learning rate
