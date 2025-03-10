@@ -96,7 +96,7 @@ optimization:
  use_liger: true
  flash_attention_implementation: "variant-3-liger"
 
-optimizer: paged_adamw_8bit
+optimizer: adamw_torch_fused
 #
 #tokenizer_config:
 #  padding_side: left
