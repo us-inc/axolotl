@@ -41,7 +41,7 @@ model_init_kwargs:
 chat_template: qwen_25
 datasets:
   - path: json
-    data_files: /shared/final_1_5M.jsonl  # replace this with the path to your dataset
+    data_files: /shared/dataset_chat_2_4M.jsonl  # replace this with the path to your dataset
     type: chat_template
     field_messages: messages
 trust_remote_code: true
@@ -89,7 +89,7 @@ weight_decay: 0.05 # change this to your desired weight decay
 max_grad_norm: 1.0 # change this to your desired max grad norm
 # dropout: 0.01
 xformers_attention:
-deepspeed: /shared/data/axolotl/deepspeed_configs/zero1.json # replace this with the path to your deepspeed config file
+deepspeed: /shared/data/axolotl/deepspeed_configs/zero2.json # replace this with the path to your deepspeed config file
 
 flash_attention: true
 optimization:
