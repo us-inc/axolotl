@@ -1,4 +1,4 @@
-base_model: /shared/base_models/Qwen2.5-7B/
+base_model: /shared/base_models/qwen2.5-32b/
 # model_type: AutoModelForCausalLM
 # tokenizer_type: AutoTokenizer
 is_qwen_derived_model: true
