@@ -12,7 +12,7 @@ strict: false
 shuffle_merged_datasets: true
 trust_remote_code:
 bf16: auto
-fp16: 
+fp16:
 tf32: false
 special_tokens:
   # bos_token: "<|im_start|>"
@@ -32,7 +32,7 @@ special_tokens:
     - "<output name=\""
     - "<output>"
     - "</function_outputs>"
-  
+
 model_init_kwargs:
   init_device: "meta"
   resize_token_embeddings_strategy: "mean"
@@ -56,7 +56,7 @@ sample_packing: false
 wandb_project: train-r1-2_4M
 wandb_entity: ankit-singh-5techlab
 wandb_watch:
-wandb_name: train-v1_32B-1_5M
+wandb_name: train-v1_32B-2_4M
 wandb_run_id: run-2_4M_tmp
 wandb_log_model:
 output_dir: /shared/data/2_4M/32b

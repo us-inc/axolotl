@@ -37,7 +37,7 @@ wandb login 0b01a182246af40350de8a12ba31d0812b7e762a
 
 ### Start Training Command (From shared folder)
 
-torchrun --nnodes 7 --nproc_per_node 8 --rdzv_id "abc123" --rdzv_backend c10d --rdzv_endpoint "slurm-469-slurmd-0:30000" -m axolotl.cli.train /shared/axolotl/examples/5techlab/qwen_train_14b.yaml
+torchrun --nnodes 8 --nproc_per_node 8 --rdzv_id "abc123" --rdzv_backend c10d --rdzv_endpoint "slurm-469-slurmd-0:30000" -m axolotl.cli.train /shared/axolotl/examples/5techlab/qwen_train_14b.yaml
 
 ### Start Training Command (From local)
 
