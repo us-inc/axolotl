@@ -11,8 +11,8 @@ load_in_4bit: false
 strict: false
 shuffle_merged_datasets: true
 trust_remote_code:
-bf16: true
-#fp16: 
+bf16: auto
+fp16: 
 tf32: false
 special_tokens:
   # bos_token: "<|im_start|>"
@@ -89,7 +89,7 @@ weight_decay: 0.01
 max_grad_norm: 1.0
 # dropout: 0.01
 xformers_attention:
-deepspeed: deepspeed_configs/zero3.json
+deepspeed: deepspeed_configs/zero3_bf16.json
 
 flash_attention: true
 optimization:
