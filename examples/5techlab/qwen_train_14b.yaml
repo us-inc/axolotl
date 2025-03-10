@@ -11,8 +11,8 @@ load_in_4bit: false
 strict: false
 shuffle_merged_datasets: true
 trust_remote_code:
-bf16: auto
-fp16:
+bf16: true
+#fp16:
 tf32: false
 special_tokens:
   # bos_token: "<|im_start|>"
