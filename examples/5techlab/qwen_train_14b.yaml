@@ -61,7 +61,7 @@ wandb_run_id: run-r1-train-v2-14b # replace this with your wandb run id
 wandb_log_model:
 output_dir: /shared/data/train/model/14b/v2 # replace this with the path to your output directory
 ###########
-gradient_accumulation_steps: 8 # change this to your desired gradient accumulation steps
+gradient_accumulation_steps: 4 # change this to your desired gradient accumulation steps
 micro_batch_size: 1 # change this to your desired micro batch size
 num_epochs: 3 # change this to your desired number of epochs
 warmup_ratio: 0.1 # change this to your desired warmup ratio
@@ -89,14 +89,14 @@ weight_decay: 0.05 # change this to your desired weight decay
 max_grad_norm: 1.0 # change this to your desired max grad norm
 # dropout: 0.01
 xformers_attention:
-deepspeed: /shared/data/axolotl/deepspeed_configs/zero3_bf16.json # replace this with the path to your deepspeed config file
+deepspeed: /shared/data/axolotl/deepspeed_configs/zero3_bf16_cpuoffload_all.json # replace this with the path to your deepspeed config file
 
 flash_attention: true
 optimization:
  use_liger: true
  flash_attention_implementation: "variant-3-liger"
 
-optimizer: paged_adamw_8bit
+optimizer: adamw_torch_fused
 #
 #tokenizer_config:
 #  padding_side: left
