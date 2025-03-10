@@ -61,15 +61,15 @@ wandb_run_id: run-2_4M_tmp
 wandb_log_model:
 output_dir: /shared/data/2_4M/32b
 ###########
-gradient_accumulation_steps: 8
+gradient_accumulation_steps: 6
 micro_batch_size: 1
 num_epochs: 3
 warmup_ratio: 0.1
 learning_rate: 1e-5
 
-eval_steps: 200
-save_steps: 200
-save_total_limit: 4
+eval_steps: 100
+save_steps: 100
+save_total_limit:
 #auto_find_batch_size:
 load_best_model_at_end: true
 metric_for_best_model: "eval_loss"
@@ -89,7 +89,7 @@ weight_decay: 0.01
 max_grad_norm: 1.0
 # dropout: 0.01
 xformers_attention:
-deepspeed: deepspeed_configs/zero3_bf16_cpuoffload_all.json
+deepspeed: deepspeed_configs/zero3_bf16_cpuoffload_params.json
 
 flash_attention: true
 optimization:

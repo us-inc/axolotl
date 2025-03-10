@@ -41,5 +41,5 @@ torchrun --nnodes 8 --nproc_per_node 8 --rdzv_id "abc123" --rdzv_backend c10d --
 
 ### Start Training Command (From local)
 
-torchrun --nnodes 7 --nproc_per_node 8 --rdzv_id "abc123" --rdzv_backend c10d --rdzv_endpoint "slurm-469-slurmd-0:30000" -m axolotl.cli.train examples/5techlab/qwen_train_14b.yaml
+torchrun --nnodes 8 --nproc_per_node 8 --rdzv_id "abc123" --rdzv_backend c10d --rdzv_endpoint "pytorch-job-471-master-0:30000" -m axolotl.cli.train examples/5techlab/qwen_train_14b.yaml
 
