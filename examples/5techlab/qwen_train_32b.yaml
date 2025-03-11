@@ -1,4 +1,4 @@
-base_model: qwen2.5-32b/
+base_model: /shared/base_models/qwen2.5-32b/
 # model_type: AutoModelForCausalLM
 # tokenizer_type: AutoTokenizer
 is_qwen_derived_model: true
@@ -41,11 +41,11 @@ model_init_kwargs:
 chat_template: qwen_25
 datasets:
   - path: json
-    data_files: 1k.jsonl
+    data_files: /shared/1k.jsonl
     type: chat_template
     field_messages: messages
 trust_remote_code: true
-dataset_prepared_path: data/2_4M/last_run_prepared
+dataset_prepared_path: /shared/data/2_4M/last_run_prepared
 # dataset_processes: 200
 hub_model_id:
 sequence_len: 8192
@@ -59,7 +59,7 @@ wandb_watch:
 wandb_name: train-v1_32B-2_4M
 wandb_run_id: run-2_4M_tmp
 wandb_log_model:
-output_dir: data/2_4M/32b
+output_dir: /shared/data/2_4M/32b
 ###########
 gradient_accumulation_steps: 1
 micro_batch_size: 1
@@ -90,11 +90,11 @@ weight_decay: 0.01
 max_grad_norm: 1.0
 # dropout: 0.01
 xformers_attention:
-deepspeed: deepspeed_configs/zero3_bf16_cpuoffload_all.json
+deepspeed: deepspeed_configs/zero1.json
 flash_attention: true
-# optimization:
-#  use_liger: true
-#  flash_attention_implementation: "variant-3-liger"
+optimization:
+ use_liger: true
+ flash_attention_implementation: "variant-3-liger"
 
 optimizer: adamw_torch
 lr_scheduler: cosine
@@ -103,13 +103,13 @@ lr_scheduler: cosine
 #  padding_side: left
 #
 
-# plugins:
-#   - axolotl.integrations.liger.LigerPlugin
-# liger_rope: true
-# liger_rms_norm: true
-# liger_glu_activation: true
-# liger_layer_norm: true
-# liger_fused_linear_cross_entropy: true
+plugins:
+  - axolotl.integrations.liger.LigerPlugin
+liger_rope: true
+liger_rms_norm: true
+liger_glu_activation: true
+liger_layer_norm: true
+liger_fused_linear_cross_entropy: true
 
 
 val_set_size: 0.01
