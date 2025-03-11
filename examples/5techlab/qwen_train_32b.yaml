@@ -89,12 +89,12 @@ weight_decay: 0.01
 max_grad_norm: 1.0
 # dropout: 0.01
 xformers_attention:
-deepspeed: deepspeed_configs/zero3_bf16_cpuoffload_params.json
+deepspeed: deepspeed_configs/zero1.json
 
 flash_attention: true
-optimization:
- use_liger: true
- flash_attention_implementation: "variant-3-liger"
+# optimization:
+#  use_liger: true
+#  flash_attention_implementation: "variant-3-liger"
 
 optimizer: paged_adamw_8bit
 #
@@ -102,13 +102,13 @@ optimizer: paged_adamw_8bit
 #  padding_side: left
 #
 
-plugins:
-  - axolotl.integrations.liger.LigerPlugin
-liger_rope: true
-liger_rms_norm: true
-liger_glu_activation: true
-liger_layer_norm: true
-liger_fused_linear_cross_entropy: true
+# plugins:
+#   - axolotl.integrations.liger.LigerPlugin
+# liger_rope: true
+# liger_rms_norm: true
+# liger_glu_activation: true
+# liger_layer_norm: true
+# liger_fused_linear_cross_entropy: true
 
 
 val_set_size: 0.01
