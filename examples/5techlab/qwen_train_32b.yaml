@@ -119,3 +119,4 @@ save_on_each_node: false
 ddp_timeout: 300000
 fsdp:
 fsdp_config:
+ddp_timeout: 300000
