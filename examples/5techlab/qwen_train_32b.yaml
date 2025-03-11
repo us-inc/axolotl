@@ -89,14 +89,14 @@ weight_decay: 0.01
 max_grad_norm: 1.0
 # dropout: 0.01
 xformers_attention:
-deepspeed: deepspeed_configs/zero2.json
+deepspeed: deepspeed_configs/zero3_bf16_cpuoffload_params.json
 
 flash_attention: true
 optimization:
  use_liger: true
  flash_attention_implementation: "variant-3-liger"
 
-optimizer: adamw_torch_fused
+optimizer: paged_adamw_8bit
 #
 #tokenizer_config:
 #  padding_side: left

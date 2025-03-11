@@ -8,17 +8,17 @@ git pull
 
 ### Environment Variable Setup
 
-<!-- export NCCL_SOCKET_IFNAME=eth0 -->
-export NCCL_SOCKET_IFNAME="eth0,en,eth,em,bond"
+export NCCL_SOCKET_IFNAME=eth0
 export GPUS_PER_NODE=8
-export NNODES=7
-export MASTER_ADDR=pytorch-job-465-master-0
+export NNODES=16
+export MASTER_ADDR=slurm-473-slurmd-0
 export MASTER_PORT=30000
 export NCCL_DEBUG=INFO
+export WANDB_API_KEY="0b01a182246af40350de8a12ba31d0812b7e762a"
+
+export NCCL_SOCKET_IFNAME="eth0,en,eth,em,bond"
 export NCCL_IB_DISABLE=0
 export NCCL_BUFFSIZE=2097152
-
-export WANDB_API_KEY="0b01a182246af40350de8a12ba31d0812b7e762a"
 
 ### NCCL SLURM Command
 
@@ -41,5 +41,5 @@ torchrun --nnodes 8 --nproc_per_node 8 --rdzv_id "abc123" --rdzv_backend c10d --
 
 ### Start Training Command (From local)
 
-torchrun --nnodes 8 --nproc_per_node 8 --rdzv_id "abc123" --rdzv_backend c10d --rdzv_endpoint "	slurm-474-slurmd-0:30000" -m axolotl.cli.train examples/5techlab/qwen_train_32b.yaml
+torchrun --nnodes 16 --nproc_per_node 8 --rdzv_id "abc123" --rdzv_backend c10d --rdzv_endpoint "slurm-473-slurmd-0:30000" -m axolotl.cli.train examples/5techlab/qwen_train_32b.yaml
 
