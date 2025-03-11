@@ -1,4 +1,4 @@
-base_model: mistral-community/Mixtral-8x22B-v0.1
+base_model: /shared/base_models/qwen2.5-32b/
 # optionally might have model_type or tokenizer_type
 model_type: AutoModelForCausalLM
 tokenizer_type: LlamaTokenizer
@@ -11,16 +11,9 @@ load_in_8bit: false
 load_in_4bit: false
 strict: false
 
-unfrozen_parameters:
-  - ^lm_head.weight$
-  - ^model.embed_tokens.weight$
-  - model.layers.4[4-9]+.block_sparse_moe.gate
-  - model.layers.4[4-9]+.block_sparse_moe.experts
-  - model.layers.5[0-5]+.block_sparse_moe.gate
-  - model.layers.5[0-5]+.block_sparse_moe.experts
 
-model_config:
-  output_router_logits: true
+# model_config:
+#   output_router_logits: true
 
 datasets:
   - path: tatsu-lab/alpaca
