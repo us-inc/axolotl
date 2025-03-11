@@ -115,4 +115,4 @@ val_set_size: 0.01
 do_eval: true
 
 save_on_each_node: false
-ddp_timeout: 300
+ddp_timeout: 300000
