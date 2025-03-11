@@ -76,6 +76,7 @@ metric_for_best_model: "eval_loss"
 greater_is_better: false
 ####
 eval_table_size: 1
+group_by_length: false
 train_on_inputs: false
 
 
@@ -90,24 +91,25 @@ max_grad_norm: 1.0
 # dropout: 0.01
 xformers_attention:
 deepspeed: deepspeed_configs/zero3_bf16_cpuoffload_params.json
-#flash_attention: true
-optimization:
- use_liger: true
- flash_attention_implementation: "variant-3-liger"
+flash_attention: true
+# optimization:
+#  use_liger: true
+#  flash_attention_implementation: "variant-3-liger"
 
-optimizer: paged_adamw_8bit
+optimizer: adamw_torch
+lr_scheduler: cosine
 #
 #tokenizer_config:
 #  padding_side: left
 #
 
-plugins:
-  - axolotl.integrations.liger.LigerPlugin
-liger_rope: true
-liger_rms_norm: true
-liger_glu_activation: true
-liger_layer_norm: true
-liger_fused_linear_cross_entropy: true
+# plugins:
+#   - axolotl.integrations.liger.LigerPlugin
+# liger_rope: true
+# liger_rms_norm: true
+# liger_glu_activation: true
+# liger_layer_norm: true
+# liger_fused_linear_cross_entropy: true
 
 
 val_set_size: 0.01
@@ -115,3 +117,5 @@ do_eval: true
 
 save_on_each_node: false
 ddp_timeout: 300000
+fsdp:
+fsdp_config:
