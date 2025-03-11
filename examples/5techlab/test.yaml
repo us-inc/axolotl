@@ -1,7 +1,7 @@
 base_model: /shared/base_models/qwen2.5-32b/
 # optionally might have model_type or tokenizer_type
 model_type: AutoModelForCausalLM
-tokenizer_type: LlamaTokenizer
+# tokenizer_type: LlamaTokenizer
 # Automatically upload checkpoint and final model to HF
 # hub_model_id: username/custom_model_name
 
