@@ -5,11 +5,12 @@ is_qwen_derived_model: true
 is_llama_derived_model: false
 resume_from_checkpoint:
 #auto_resume_from_checkpoints: false
-#seed: 42
+# seed: 42
 load_in_8bit: false
 load_in_4bit: false
 strict: false
 shuffle_merged_datasets: true
+trust_remote_code:
 bf16: auto
 fp16:
 tf32: false
@@ -65,20 +66,20 @@ micro_batch_size: 1
 num_epochs: 3
 warmup_steps: 100
 learning_rate: 1e-5
-logging_steps: 1
-eval_steps: 10
-save_steps: 10
-save_total_limit: 5
+
+eval_steps: 100
+save_steps: 100
+save_total_limit:
 #auto_find_batch_size:
 load_best_model_at_end: true
 metric_for_best_model: "eval_loss"
 greater_is_better: false
 ####
-#eval_table_size: 1
+# eval_table_size: 1
 group_by_length: false
 train_on_inputs: false
 
-debug:
+
 gradient_checkpointing: true
 # gradient_checkpointing_kwargs:
 #   use_reentrant: true
@@ -91,28 +92,30 @@ max_grad_norm: 1.0
 xformers_attention:
 deepspeed: deepspeed_configs/zero3_bf16_cpuoffload_all.json
 flash_attention: true
-# optimization:
-#  use_liger: true
-#  flash_attention_implementation: "variant-3-liger"
+optimization:
+ use_liger: true
+ flash_attention_implementation: "variant-3-liger"
 
-optimizer: adamw_bnb_8bit
+optimizer: adamw_torch
 lr_scheduler: cosine
 #
 #tokenizer_config:
 #  padding_side: left
 #
 
-# plugins:
-#   - axolotl.integrations.liger.LigerPlugin
-# liger_rope: true
-# liger_rms_norm: true
-# liger_glu_activation: true
-# liger_layer_norm: true
-# liger_fused_linear_cross_entropy: true
+plugins:
+  - axolotl.integrations.liger.LigerPlugin
+liger_rope: true
+liger_rms_norm: true
+liger_glu_activation: true
+liger_layer_norm: true
+liger_fused_linear_cross_entropy: true
 
 
 val_set_size: 0.01
-#do_eval: true
-#save_on_each_node: false
+# do_eval: true
+
+# save_on_each_node: false
+# ddp_timeout: 300000
 fsdp:
 fsdp_config:
