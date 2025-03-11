@@ -61,7 +61,7 @@ wandb_run_id: run-2_4M_tmp_final
 wandb_log_model:
 output_dir: /shared/data/2_4M/32b
 ###########
-gradient_accumulation_steps: 1
+gradient_accumulation_steps: 8
 micro_batch_size: 1
 num_epochs: 3
 warmup_steps: 100
