@@ -76,7 +76,7 @@ metric_for_best_model: "eval_loss"
 greater_is_better: false
 ####
 eval_table_size: 1
-#group_by_length: false
+group_by_length: false
 train_on_inputs: false
 
 
