@@ -62,7 +62,7 @@ wandb_log_model:
 output_dir: /shared/data/2_4M/32b
 ###########
 gradient_accumulation_steps: 8
-micro_batch_size: 1
+micro_batch_size: 3
 num_epochs: 3
 warmup_steps: 100
 learning_rate: 1e-5
