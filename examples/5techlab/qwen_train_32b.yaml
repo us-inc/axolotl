@@ -25,14 +25,14 @@ special_tokens:
     - "<function_calls>"
     - "</function_calls>"
     - "</function>"
-    - "<|beginning_of_reasoning|>"
+    - "<|start_of_reasoning|>"
     - "<|end_of_reasoning|>"
     - "<function name=\""
     - "<function_outputs>"
     - "<output name=\""
     - "<output>"
     - "</function_outputs>"
-    - "<|beginning_of_response|>"
+    - "<|start_of_response|>"
     - "<|end_of_response|>"
 
 
@@ -44,7 +44,7 @@ model_init_kwargs:
 chat_template: qwen_25
 datasets:
   - path: json
-    data_files: /shared/dataset_chat_2_4M_v1_0.jsonl
+    data_files: /shared/dataset_chat_2_4M_v1_1.jsonl
     type: chat_template
     field_messages: messages
 trust_remote_code: true
