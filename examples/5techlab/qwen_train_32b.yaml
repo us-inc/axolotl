@@ -15,9 +15,9 @@ bf16: auto
 fp16:
 tf32: false
 special_tokens:
-  # bos_token: "<|im_start|>"
-  # eos_token: "<|im_end|>"
-  # pad_token: "<|endoftext|>"
+  bos_token: "<|im_start|>"
+  eos_token: "<|im_end|>"
+  pad_token: "<|endoftext|>"
   additional_special_tokens:
     - "<|im_header_end|>"
     - "<functions>"
