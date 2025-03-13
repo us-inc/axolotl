@@ -23,20 +23,20 @@ special_tokens:
     - "<|end_of_header|>"
 
 tokens:
+  - "<|start_of_reasoning|>"
+  - "<|end_of_reasoning|>"
+  - "<|start_of_response|>"
+  - "<|end_of_response|>"
   - "<functions>"
   - "</functions>"
   - "<function_calls>"
   - "</function_calls>"
+  - "<function name="
   - "</function>"
-  - "<|start_of_reasoning|>"
-  - "<|end_of_reasoning|>"
-  - "<function name=\""
-  - "<function_outputs>"
-  - "<output name=\""
+  - "<output name="
   - "<output>"
+  - "<function_outputs>"
   - "</function_outputs>"
-  - "<|start_of_response|>"
-  - "<|end_of_response|>"
 
 model_init_kwargs:
   init_device: "meta"
