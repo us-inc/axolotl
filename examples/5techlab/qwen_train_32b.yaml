@@ -118,9 +118,9 @@ liger_fused_linear_cross_entropy: true
 
 
 val_set_size: 0.01
-# do_eval: true
+do_eval: true
 
-# save_on_each_node: false
+save_on_each_node: false
 ddp_timeout: 300000
 fsdp:
 fsdp_config:
