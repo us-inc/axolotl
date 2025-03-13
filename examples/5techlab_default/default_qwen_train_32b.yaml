@@ -23,14 +23,14 @@ special_tokens:
     - "<|end_of_header|>"
 
 tokens:
-  - "<functions>"
-  - "</functions>"
-  - "<function_calls>"
-  - "</function_calls>"
   - "<|start_of_reasoning|>"
   - "<|end_of_reasoning|>"
   - "<|start_of_response|>"
   - "<|end_of_response|>"
+  - "<functions>"
+  - "</functions>"
+  - "<function_calls>"
+  - "</function_calls>"
   - "<function name="
   - "</function>"
   - "<output name="
