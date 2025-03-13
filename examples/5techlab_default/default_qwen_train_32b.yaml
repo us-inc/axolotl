@@ -30,9 +30,9 @@ tokens:
   - "</function>"
   - "<|start_of_reasoning|>"
   - "<|end_of_reasoning|>"
-  - "<function name=\""
+  - '<function name="'
   - "<function_outputs>"
-  - "<output name=\""
+  - '<output name=\"'
   - "<output>"
   - "</function_outputs>"
   - "<|start_of_response|>"
