@@ -15,30 +15,35 @@ bf16: auto
 fp16:
 tf32: false
 special_tokens:
-  # bos_token: "<|im_start|>"
-  # eos_token: "<|im_end|>"
-  # pad_token: "<|endoftext|>"
+  bos_token: "<|im_start|>"
+  eos_token: "<|im_end|>"
+  pad_token: "<|endoftext|>"
   additional_special_tokens:
-    - "<|im_header_end|>"
-    - "<functions>"
-    - "</functions>"
-    - "<function_calls>"
-    - "</function_calls>"
-    - "</function>"
-    - "<think>"
-    - "</think>"
-    - "<function name=\""
-    - "<function_outputs>"
-    - "<output name=\""
-    - "<output>"
-    - "</function_outputs>"
+    - "<|start_of_header|>"
+    - "<|end_of_header|>"
+
+tokens:
+  - "<functions>"
+  - "</functions>"
+  - "<function_calls>"
+  - "</function_calls>"
+  - "</function>"
+  - "<|start_of_reasoning|>"
+  - "<|end_of_reasoning|>"
+  - "<function name=\""
+  - "<function_outputs>"
+  - "<output name=\""
+  - "<output>"
+  - "</function_outputs>"
+  - "<|start_of_response|>"
+  - "<|end_of_response|>"
 
 model_init_kwargs:
   init_device: "meta"
   resize_token_embeddings_strategy: "mean"
 # bfloat16: true # require >=ampere
 # float16: true
-chat_template: qwen_25
+chat_template: 5techlab
 datasets:
   - path: json
     data_files: /shared/default/dataset # replace this with the path to your dataset
