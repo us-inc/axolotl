@@ -44,7 +44,7 @@ model_init_kwargs:
 chat_template: qwen_25
 datasets:
   - path: json
-    data_files: /shared/dataset_chat_2_4M_v1_1.jsonl
+    data_files: /shared/dataset_chat_2_4M_v1_3.jsonl
     type: chat_template
     field_messages: messages
 trust_remote_code: true
@@ -62,7 +62,7 @@ wandb_watch:
 wandb_name: train-v1_32B-2_4M_final
 wandb_run_id: run-2_4M_tmp_final
 wandb_log_model:
-output_dir: /shared/data/2_4M/32b
+output_dir: /shared/data/2_4M/32b_v2
 ###########
 gradient_accumulation_steps: 8
 micro_batch_size: 3
