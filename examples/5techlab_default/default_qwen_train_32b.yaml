@@ -32,7 +32,7 @@ tokens:
   - "<|end_of_reasoning|>"
   - '<function name="'
   - "<function_outputs>"
-  - '<output name=\"'
+  - '<output name="'
   - "<output>"
   - "</function_outputs>"
   - "<|start_of_response|>"
