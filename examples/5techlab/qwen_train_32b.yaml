@@ -23,27 +23,27 @@ special_tokens:
     - "<|end_of_header|>"
 
 tokens:
+  - "<|start_of_reasoning|>"
+  - "<|end_of_reasoning|>"
+  - "<|start_of_response|>"
+  - "<|end_of_response|>"
   - "<functions>"
   - "</functions>"
   - "<function_calls>"
   - "</function_calls>"
+  - "<function name="
   - "</function>"
-  - "<|start_of_reasoning|>"
-  - "<|end_of_reasoning|>"
-  - "<function name=\""
-  - "<function_outputs>"
-  - "<output name=\""
+  - "<output name="
   - "<output>"
+  - "<function_outputs>"
   - "</function_outputs>"
-  - "<|start_of_response|>"
-  - "<|end_of_response|>"
 
 model_init_kwargs:
   init_device: "meta"
   resize_token_embeddings_strategy: "mean"
 # bfloat16: true # require >=ampere
 # float16: true
-chat_template: 5techlab
+chat_template: qwen_25
 datasets:
   - path: json
     data_files: /shared/dataset_chat_2_4M_v1_3.jsonl
@@ -58,11 +58,11 @@ pad_to_sequence_len: true
 sample_packing: false
 #batch_flattening:
 
-wandb_project: train-r1-2_4M_final
+wandb_project: train-r1-2_4M_32b-13-3-2025
 wandb_entity: ankit-singh-5techlab
 wandb_watch:
-wandb_name: train-v1_32B-2_4M_final
-wandb_run_id: run-2_4M_tmp_final
+wandb_name: train-r1-2_4M_32b-13-3-2025
+wandb_run_id: run-r1-2_4M_32b-13-3-2025
 wandb_log_model:
 output_dir: /shared/data/2_4M/32b_v2
 ###########
@@ -118,9 +118,9 @@ liger_fused_linear_cross_entropy: true
 
 
 val_set_size: 0.01
-# do_eval: true
+do_eval: true
 
-# save_on_each_node: false
+save_on_each_node: false
 ddp_timeout: 300000
 fsdp:
 fsdp_config:

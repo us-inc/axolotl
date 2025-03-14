@@ -23,27 +23,27 @@ special_tokens:
     - "<|end_of_header|>"
 
 tokens:
+  - "<|start_of_reasoning|>"
+  - "<|end_of_reasoning|>"
+  - "<|start_of_response|>"
+  - "<|end_of_response|>"
   - "<functions>"
   - "</functions>"
   - "<function_calls>"
   - "</function_calls>"
+  - "<function name="
   - "</function>"
-  - "<|start_of_reasoning|>"
-  - "<|end_of_reasoning|>"
-  - "<function name=\""
-  - "<function_outputs>"
-  - "<output name=\""
+  - "<output name="
   - "<output>"
+  - "<function_outputs>"
   - "</function_outputs>"
-  - "<|start_of_response|>"
-  - "<|end_of_response|>"
 
 model_init_kwargs:
   init_device: "meta"
   resize_token_embeddings_strategy: "mean"
 # bfloat16: true # require >=ampere
 # float16: true
-chat_template: 5techlab
+chat_template: qwen_25
 datasets:
   - path: json
     data_files: /shared/default/dataset # replace this with the path to your dataset
