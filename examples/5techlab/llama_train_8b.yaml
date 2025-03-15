@@ -1,7 +1,7 @@
 base_model: /shared/base_models/meta-llama/Llama-3.1-8B
-# model_type: AutoModelForCausalLM
-# tokenizer_type: AutoTokenizer
-is_llama_derived_model: true
+model_type: AutoModelForCausalLM
+tokenizer_type: AutoTokenizer
+#is_llama_derived_model: true
 resume_from_checkpoint:
 #auto_resume_from_checkpoints: false
 # seed: 42
